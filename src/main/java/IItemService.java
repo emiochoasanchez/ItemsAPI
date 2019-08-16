@@ -4,9 +4,9 @@ public interface IItemService {
 
     public Collection<Item> getItems();
 
-    public Item getItemsByUser(String id);
+    public Collection<Item>  getItemByUser(String username);
 
-    public int addItem(Item item) throws ApiException;
+    public String addItem(String id,Item item) throws ApiException;
 
 
 }

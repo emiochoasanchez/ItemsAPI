@@ -4,19 +4,19 @@ public class User {
     private String name;
     private String username;
     private String email;
-    private String phone;
-    private String website;
+    //private String phone;
+    //private String website;
 
     private String password;
     private String token;
 
-    public User(int id, String name, String username, String email, String phone, String website, String password) {
+    public User(int id, String name, String username, String email, /*String phone, String website, */String password) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.email = email;
-        this.phone = phone;
-        this.website = website;
+       // this.phone = phone;
+        //this.website = website;
         this.password = password;
 
     }
@@ -53,7 +53,7 @@ public class User {
         this.email = email;
     }
 
-    public String getPhone() {
+   /* public String getPhone() {
         return phone;
     }
 
@@ -67,7 +67,7 @@ public class User {
 
     public void setWebsite(String website) {
         this.website = website;
-    }
+    }*/
 
     public String getPassword() {
         return password;

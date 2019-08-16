@@ -10,19 +10,23 @@ import java.util.List;
 
 public class Connection {
 
-    public static BufferedReader get(String url1) {
+    public static BufferedReader get(String url1, String username, String token) {
 
         try {
             URL url = new URL(url1);
 
             try {
                 URLConnection urlConnection = url.openConnection() ;
+
+                urlConnection.setRequestProperty("username",username);
+                urlConnection.setRequestProperty("token",token);
+
+
                 urlConnection.setRequestProperty("Accept", "application/json");
                 urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0");
                 if (urlConnection instanceof HttpURLConnection) {
 
                     HttpURLConnection connection = (HttpURLConnection) urlConnection;
-                    // conection.setRequesMethod("POST");
                     BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                     Gson gson = new Gson();
                     return in;
@@ -44,25 +48,23 @@ public class Connection {
         return null;
     }
 
-
-    public static BufferedReader post(String url2,  List<Header> headers) {
+/*
+    public static BufferedReader post(String url2) {
 
         try {
             URL url = new URL(url2);
 
             try {
                 URLConnection urlConnection = url.openConnection() ;
-                for(Header header : headers)
-                {
-                    urlConnection.setRequestProperty(header.getParametro(),header.getValor());
-                }
+
+                    urlConnection.setRequestProperty();
+
                 urlConnection.setRequestProperty("Accept", "application/json");
                 urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0");
                 if (urlConnection instanceof HttpURLConnection) {
 
                     HttpURLConnection connection = (HttpURLConnection) urlConnection;
                     connection.setRequestMethod("POST");
-                    System.out.println("Code of MOCK --->"+connection.getResponseCode());
                     return  (new BufferedReader(new InputStreamReader(connection.getInputStream())));
 
                 } else {
@@ -81,5 +83,5 @@ public class Connection {
         }
         return null;
     }
-
+*/
 }
